@@ -36,8 +36,6 @@ const HeroSection = ({ data }) => {
         {/* Top Meta Bar */}
         <div className="flex justify-between items-center border-b border-foreground/20 pb-4 mb-12 font-mono text-xs uppercase tracking-widest text-muted-foreground">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-            LIVE SYSTEM
           </div>
           <div className="hidden md:block">
             VOL. 01 — {new Date().getFullYear()}
@@ -72,11 +70,21 @@ const HeroSection = ({ data }) => {
               ))}
             </h1>
 
-            <div className="w-32 h-1 bg-foreground my-8"></div>
+            <div className="w-32 h-1 bg-foreground my-6"></div>
 
-            <p className="text-xl md:text-2xl font-sans text-foreground/80 max-w-2xl leading-relaxed">
+            <p className="text-xl md:text-2xl font-sans text-foreground/80 max-w-2xl leading-relaxed mb-6">
               {data.tagline}
             </p>
+
+            {/* Prominent Email CTA */}
+            <a
+              href={`mailto:${data.email}`}
+              className="inline-flex items-center gap-3 px-6 py-3 border-2 border-foreground font-mono text-sm font-bold  tracking-wider hover:bg-foreground hover:text-background transition-all duration-300 group"
+            >
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              {data.email}
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
+            </a>
           </div>
 
           <div className="relative aspect-3/4 md:aspect-square lg:aspect-4/5 bg-muted overflow-hidden border border-foreground group">
@@ -92,7 +100,7 @@ const HeroSection = ({ data }) => {
             {/* Caption */}
             <div className="absolute bottom-4 left-4 right-4 flex justify-between font-mono text-[10px] uppercase tracking-widest text-muted-foreground mix-blend-difference">
               <span>Fig. 01</span>
-              <span>System Architect</span>
+              <span>Full Stack Developer</span>
             </div>
           </div>
         </div>
