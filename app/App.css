@@ -1,0 +1,82 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap');
+
+.App {
+  min-height: 100vh;
+  background: #F5F3EE;
+  overflow-x: hidden;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Newspaper page perspective setup */
+.newspaper-page {
+  transform-style: preserve-3d;
+  will-change: transform, opacity, filter;
+  position: relative;
+  background: #F5F3EE;
+}
+
+/* Enhanced page curl effect */
+.newspaper-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 45%,
+    rgba(26, 26, 26, 0.02) 50%,
+    transparent 55%,
+    transparent 100%
+  );
+  opacity: 0.5;
+}
+
+/* Disable animations on mobile for performance */
+@media (max-width: 768px) {
+  .newspaper-page {
+    transform: none !important;
+    opacity: 1 !important;
+    box-shadow: none !important;
+  }
+  
+  .animate-headline,
+  .animate-content,
+  .animate-image {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Selection color */
+::selection {
+  background: #1A1A1A;
+  color: #F5F3EE;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F3EE;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1A1A1A;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3A3A3A;
+}
