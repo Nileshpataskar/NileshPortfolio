@@ -1,93 +1,71 @@
-import React from 'react';
+import React from "react";
 
 export const Skills = ({ data }) => {
   return (
-    <section 
-      className="newspaper-page min-h-screen bg-[#F5F3EE] px-6 md:px-12 lg:px-20 py-20"
-      style={{ perspective: '1200px' }}
+    <section
+      className="newspaper-page min-h-screen bg-background px-6 md:px-12 lg:px-20 py-20 relative overflow-hidden"
       data-testid="skills-section"
     >
-      <div className="max-w-6xl mx-auto">
-        {/* Section header - Classifieds style */}
-        <div className="border-t-2 border-b border-[#1A1A1A] py-4 mb-12">
-          <h2 
-            className="animate-headline text-4xl md:text-5xl lg:text-6xl font-bold font-['Playfair_Display'] text-[#1A1A1A]"
+      <div className="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
+        <div className="text-9xl font-serif font-black tracking-tighter text-foreground">
+          05
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Section header */}
+        <div className="border-t-2 border-b border-foreground py-4 mb-12">
+          <h2
+            className="animate-headline text-4xl md:text-5xl lg:text-6xl font-black font-serif text-foreground uppercase tracking-tight"
             data-testid="skills-headline"
           >
-            Technical Expertise
+            Capabilities
           </h2>
-          <div className="text-xs tracking-[0.2em] uppercase font-['Inter'] text-[#1A1A1A] mt-2">
-            Classifieds · Skills Directory
+          <div className="flex justify-between items-center mt-2 font-mono text-xs tracking-widest uppercase text-muted-foreground">
+            <span>System Specs · Stack Analysis</span>
+            <span>Ref. Tech-001</span>
           </div>
         </div>
 
-        {/* Skills as classified ads */}
+        {/* Skills as technical specs / classifieds */}
         <div className="grid md:grid-cols-3 gap-8 animate-content">
-          {/* Frontend */}
-          <div className="border-2 border-[#1A1A1A] p-6">
-            <div className="border-b border-[#1A1A1A] pb-3 mb-4">
-              <h3 className="text-sm tracking-[0.15em] uppercase font-['Inter'] text-[#1A1A1A] font-bold">
-                Frontend Development
-              </h3>
-            </div>
-            <div className="space-y-2">
-              {data.frontend.map((skill, index) => (
-                <div 
-                  key={index}
-                  className="flex items-start gap-2"
-                >
-                  <span className="text-[#1A1A1A] text-xs mt-1">■</span>
-                  <span className="text-sm font-['Inter'] text-[#1A1A1A]">
-                    {skill}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+          {[
+            { title: "Frontend Architecture", skills: data.frontend },
+            { title: "Backend Systems", skills: data.backend },
+            { title: "DevOps & Tooling", skills: data.tools },
+          ].map((category, idx) => (
+            <div
+              key={idx}
+              className="border-2 border-foreground p-0 relative group bg-background"
+            >
+              {/* Header of the card */}
+              <div className="bg-foreground text-background p-3 text-center border-b-2 border-foreground">
+                <h3 className="text-xs font-mono font-bold uppercase tracking-widest">
+                  {category.title}
+                </h3>
+              </div>
 
-          {/* Backend */}
-          <div className="border-2 border-[#1A1A1A] p-6">
-            <div className="border-b border-[#1A1A1A] pb-3 mb-4">
-              <h3 className="text-sm tracking-[0.15em] uppercase font-['Inter'] text-[#1A1A1A] font-bold">
-                Backend Development
-              </h3>
-            </div>
-            <div className="space-y-2">
-              {data.backend.map((skill, index) => (
-                <div 
-                  key={index}
-                  className="flex items-start gap-2"
-                >
-                  <span className="text-[#1A1A1A] text-xs mt-1">■</span>
-                  <span className="text-sm font-['Inter'] text-[#1A1A1A]">
-                    {skill}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+              {/* List */}
+              <div className="p-4 space-y-3">
+                {category.skills.map((skill, index) => (
+                  <div
+                    key={index}
+                    className="flex justify-between items-center border-b border-dashed border-foreground/30 pb-2 last:border-0 hover:bg-muted/50 transition-colors"
+                  >
+                    <span className="text-sm font-mono font-medium text-foreground uppercase tracking-tight">
+                      {skill}
+                    </span>
+                    <span className="text-[10px] text-muted-foreground font-mono">
+                      v1.0
+                    </span>
+                  </div>
+                ))}
+              </div>
 
-          {/* Tools */}
-          <div className="border-2 border-[#1A1A1A] p-6">
-            <div className="border-b border-[#1A1A1A] pb-3 mb-4">
-              <h3 className="text-sm tracking-[0.15em] uppercase font-['Inter'] text-[#1A1A1A] font-bold">
-                Tools & Methodologies
-              </h3>
+              {/* Corner decor */}
+              <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-foreground"></div>
             </div>
-            <div className="space-y-2">
-              {data.tools.map((skill, index) => (
-                <div 
-                  key={index}
-                  className="flex items-start gap-2"
-                >
-                  <span className="text-[#1A1A1A] text-xs mt-1">■</span>
-                  <span className="text-sm font-['Inter'] text-[#1A1A1A]">
-                    {skill}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

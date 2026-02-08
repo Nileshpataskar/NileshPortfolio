@@ -1,82 +1,83 @@
-import React from 'react';
+import React from "react";
 
 export const Footer = ({ data }) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer 
-      className="bg-[#1A1A1A] text-[#F5F3EE] px-6 md:px-12 lg:px-20 py-12"
+    <footer
+      className="bg-foreground text-background px-6 md:px-12 lg:px-20 py-24 relative overflow-hidden"
       data-testid="footer-section"
     >
-      <div className="max-w-6xl mx-auto">
-        {/* Masthead style footer */}
-        <div className="border-t-2 border-b border-[#F5F3EE] py-6 mb-8">
-          <h3 className="text-2xl md:text-3xl font-bold font-['Playfair_Display'] text-center">
-            {data.name}
-          </h3>
-          <p className="text-center text-sm font-['Inter'] mt-2">
-            {data.title}
-          </p>
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-background via-transparent to-background opacity-20"></div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-24 mb-20">
+          <div>
+            <h2 className="text-5xl md:text-7xl font-black font-serif mb-8 leading-none tracking-tighter mix-blend-difference">
+              Ready to create
+              <br />
+              the future?
+            </h2>
+            <div className="flex flex-col space-y-4">
+              <a
+                href={`mailto:${data.email}`}
+                className="text-xl md:text-2xl font-mono hover:text-muted-foreground transition-colors underline underline-offset-8 decoration-1"
+              >
+                {data.email}
+              </a>
+              <div className="flex gap-4 text-sm font-mono uppercase tracking-widest text-background/60">
+                <span>Response time: &lt; 24h</span>
+                <span>Status: Online</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col justify-between">
+            <div className="grid grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xs font-mono font-bold uppercase tracking-widest mb-4 text-background/50">
+                  Coordinates
+                </h3>
+                <p className="font-sans text-lg">{data.location}</p>
+              </div>
+              <div>
+                <h3 className="text-xs font-mono font-bold uppercase tracking-widest mb-4 text-background/50">
+                  Social Channel
+                </h3>
+                <a
+                  href={data.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-sans text-lg hover:underline underline-offset-4"
+                >
+                  LinkedIn Output
+                </a>
+              </div>
+            </div>
+
+            <div className="mt-12 p-6 border border-background/20 bg-background/5 backdrop-blur-sm">
+              <div className="text-xs font-mono uppercase tracking-widest mb-2 text-background/50">
+                System Notice
+              </div>
+              <p className="font-sans text-sm leading-relaxed text-background/80">
+                This portfolio was architected using Next.js 15 and Tailwind CSS
+                v4. Optimized for editorial excellence and performance.
+              </p>
+            </div>
+          </div>
         </div>
 
-        {/* Contact info grid */}
-        <div className="grid md:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+        {/* Bottom Bar */}
+        <div className="border-t border-background/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono uppercase tracking-widest text-background/40">
           <div>
-            <h4 className="text-xs tracking-[0.2em] uppercase font-['Inter'] mb-2">
-              Email
-            </h4>
-            <a 
-              href={`mailto:${data.email}`}
-              className="text-sm font-['Inter'] hover:underline"
-              data-testid="footer-email"
-            >
-              {data.email}
-            </a>
+            © {currentYear} {data.name} · All signal rights reserved.
           </div>
-          <div>
-            <h4 className="text-xs tracking-[0.2em] uppercase font-['Inter'] mb-2">
-              Phone
-            </h4>
-            <a 
-              href={`tel:${data.phone}`}
-              className="text-sm font-['Inter'] hover:underline"
-              data-testid="footer-phone"
-            >
-              {data.phone}
-            </a>
+          <div className="flex gap-4">
+            <span>Index</span>
+            <span>Archive</span>
+            <span>Term</span>
           </div>
-          <div>
-            <h4 className="text-xs tracking-[0.2em] uppercase font-['Inter'] mb-2">
-              Location
-            </h4>
-            <p className="text-sm font-['Inter']">
-              {data.location}
-            </p>
-          </div>
-          <div>
-            <h4 className="text-xs tracking-[0.2em] uppercase font-['Inter'] mb-2">
-              LinkedIn
-            </h4>
-            <a 
-              href={data.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-['Inter'] hover:underline"
-              data-testid="footer-linkedin"
-            >
-              Connect
-            </a>
-          </div>
-        </div>
-
-        {/* Copyright - small print */}
-        <div className="border-t border-[#F5F3EE] pt-6 text-center">
-          <p className="text-xs font-['Inter']">
-            © {currentYear} {data.name}. All rights reserved.
-          </p>
-          <p className="text-xs font-['Inter'] mt-1 opacity-70">
-            Designed with editorial precision · Built with modern web technologies
-          </p>
+          <div className="md:text-right">End of Issue · Vol. {currentYear}</div>
         </div>
       </div>
     </footer>

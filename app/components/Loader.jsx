@@ -23,7 +23,7 @@ export const Loader = ({ onLoadComplete }) => {
     if (currentIndex < greetings.length) {
       const timer = setTimeout(() => {
         setCurrentIndex(currentIndex + 1);
-      }, 200);
+      }, 150);
       return () => clearTimeout(timer);
     } else {
       // All greetings shown, start fade out
@@ -37,28 +37,31 @@ export const Loader = ({ onLoadComplete }) => {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-[#1A1A1A] transition-opacity duration-700 ${
-        fadeOut ? "opacity-0" : "opacity-100"
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-foreground transition-opacity duration-700 ${
+        fadeOut ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
       data-testid="loader-screen"
     >
-      <div className="text-center">
-        <div className="border-t-2 border-b-2 border-[#F5F3EE] py-8 px-12">
+      <div className="text-center w-full max-w-4xl px-4">
+        <div className="border-y border-background/20 py-12 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-[1px] bg-background animate-progress"></div>
+
           <h1
-            className="text-6xl md:text-8xl font-bold font-['Playfair_Display'] text-[#F5F3EE] animate-pulse"
+            className="text-6xl md:text-9xl font-black font-serif text-background tracking-tighter mix-blend-difference"
             data-testid="loader-greeting"
           >
-            {greetings[currentIndex] || greetings[greetings.length - 1]}
+            {greetings[Math.min(currentIndex, greetings.length - 1)]}
           </h1>
-          <div className="mt-6 flex justify-center gap-2">
-            {greetings.map((_, index) => (
-              <div
-                key={index}
-                className={`h-1 w-8 transition-colors duration-300 ${
-                  index <= currentIndex ? "bg-[#F5F3EE]" : "bg-[#F5F3EE]/30"
-                }`}
-              />
-            ))}
+
+          <div className="mt-8 flex justify-between items-center font-mono text-xs text-background/50 uppercase tracking-widest">
+            <span>System Initialization</span>
+            <span>
+              {Math.round(
+                (Math.min(currentIndex, greetings.length) / greetings.length) *
+                  100,
+              )}
+              %
+            </span>
           </div>
         </div>
       </div>
