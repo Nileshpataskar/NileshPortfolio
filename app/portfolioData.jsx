@@ -78,7 +78,7 @@ export const portfolioData = {
         "A comprehensive SAAS application for interior designers featuring project management tools, invoice management, and team collaboration. Led development of core features including workflow automation and real-time collaboration.",
       technologies: ["React", "Next.js", "Node.js", "MongoDB"],
       image: "/Project/DezineXpert.png",
-      link: "#",
+      link: "https://app.dezinexpert.com/",
       featured: true,
     },
     {
@@ -88,7 +88,7 @@ export const portfolioData = {
         "Developed a professional website for an electrical component manufacturer, showcasing their complete product catalog with detailed specifications and data visualization.",
       technologies: ["React", "Tailwind CSS", "REST API"],
       image: "/Project/Rahi.png",
-      link: "#",
+      link: "https://rahiindustries.in/",
       featured: true,
     },
     {
@@ -98,7 +98,7 @@ export const portfolioData = {
         "Built an engaging landing page for a premium dairy brand based in Madhya Pradesh, featuring smooth animations and brand storytelling.",
       technologies: ["React", "Framer Motion", "Tailwind CSS"],
       image: "/Project/image.png",
-      link: "#",
+      link: "https://www.grannystreat.in/",
       featured: true,
     },
     {
@@ -107,7 +107,7 @@ export const portfolioData = {
       description:
         "Created a comprehensive website for a physiotherapy clinic, showcasing treatment options, expertise areas, and patient resources with a focus on accessibility.",
       technologies: ["React", "Tailwind CSS", "SEO optimization"],
-      link: "#",
+      link: "https://physioghar.com/",
       featured: false,
     },
     {
@@ -116,7 +116,7 @@ export const portfolioData = {
       description:
         "Designed and developed a portfolio website for an office branding agency in Pune, highlighting their previous work and client acquisition strategy.",
       technologies: ["React", "Tailwind CSS", "Framer Motion"],
-      link: "#",
+      link: "https://mantaprabha-v0.vercel.app/",
       featured: false,
     },
   ],

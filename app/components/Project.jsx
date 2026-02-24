@@ -120,9 +120,10 @@ export const Projects = ({ data }) => {
 
                     <a
                       href={project.link}
+                      target="_blank"
                       className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest group hover:underline underline-offset-4 decoration-2"
                     >
-                      View Case Study
+                      View
                       <span className="group-hover:translate-x-1 transition-transform">
                         →
                       </span>
