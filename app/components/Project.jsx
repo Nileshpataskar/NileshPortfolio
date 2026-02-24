@@ -41,28 +41,50 @@ export const Projects = ({ data }) => {
               <div className="grid md:grid-cols-12 gap-8 md:gap-12">
                 {/* Image placeholder / Visual */}
                 <div className="md:col-span-5 order-2 md:order-1">
-                  <div className="aspect-[4/3] bg-muted relative overflow-hidden border border-foreground group">
-                    {/* Placeholder for project image or abstract graphic */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-foreground/5 group-hover:bg-foreground/10 transition-colors duration-500">
-                      <div className="text-center">
-                        <span className="text-6xl font-serif font-black text-foreground/20 group-hover:scale-110 transition-transform duration-700 block mb-2">
-                          {project.name.charAt(0)}
-                        </span>
-                        <div className="px-3 py-1 bg-background border border-foreground/20 text-[10px] uppercase font-mono tracking-widest text-muted-foreground">
-                          Image Signal Lost
+                  {/* Newspaper photo frame */}
+                  <div className="newspaper-photo group">
+                    <div className="newspaper-photo-inner relative overflow-hidden border border-foreground/30 shadow-sm transition-all duration-700 group-hover:border-foreground group-hover:shadow-2xl">
+                      {project.image ? (
+                        <img
+                          src={project.image}
+                          alt={project.name}
+                          className="newspaper-photo-img w-full h-full object-cover transition-all duration-1000"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center bg-foreground/5">
+                          <div className="text-center">
+                            <span className="text-6xl font-serif font-black text-foreground/20 block mb-2">
+                              {project.name.charAt(0)}
+                            </span>
+                            <div className="px-3 py-1 bg-background border border-foreground/20 text-[10px] uppercase font-mono tracking-widest text-muted-foreground">
+                              Image Signal Lost
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                    {/* Corner accents */}
-                    <div className="absolute top-2 left-2 w-2 h-2 border-l border-t border-foreground"></div>
-                    <div className="absolute bottom-2 right-2 w-2 h-2 border-r border-b border-foreground"></div>
+                      )}
 
-                    {/* Hover Glitch */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-foreground/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none mix-blend-overlay"></div>
-                  </div>
-                  <div className="flex justify-between items-center mt-3 font-mono text-xs uppercase tracking-wider text-muted-foreground">
-                    <span>Fig. {index + 1}.0</span>
-                    <span className="text-foreground">{project.category}</span>
+                      {/* Layer 1: The Halftone Dot Pattern (The Print Effect) */}
+                      <div className="newspaper-halftone absolute inset-0 pointer-events-none z-10 opacity-60 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-1000"></div>
+
+                      {/* Layer 2: Organic Paper Grain */}
+                      <div className="newspaper-grain absolute inset-0 pointer-events-none z-20 opacity-30 mix-blend-soft-light transition-opacity duration-700"></div>
+
+                      {/* Layer 3: Magical Reveal Glow */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-amber-200/5 via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-30 pointer-events-none"></div>
+                    </div>
+
+                    {/* Caption area */}
+                    <div className="flex justify-between items-center mt-4 border-t border-foreground/10 pt-2 group-hover:border-foreground/30 transition-colors">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-amber-600/50 animate-pulse group-hover:bg-amber-500"></span>
+                        <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground group-hover:text-foreground transition-colors">
+                          FIG. {index + 1}.0 // LIVE FEED
+                        </span>
+                      </div>
+                      <span className="font-mono text-[9px] uppercase tracking-tighter px-2 py-0.5 border border-foreground/10 text-muted-foreground group-hover:text-foreground group-hover:border-foreground/50 transition-all">
+                        {project.category}
+                      </span>
+                    </div>
                   </div>
                 </div>
 

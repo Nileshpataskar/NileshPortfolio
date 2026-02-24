@@ -19,7 +19,7 @@ export const Experience = ({ data }) => {
             className="animate-headline text-4xl md:text-5xl lg:text-6xl font-black font-serif text-foreground uppercase tracking-tight"
             data-testid="experience-headline"
           >
-            Chronicle
+            What Has He Done?
           </h2>
           <div className="flex justify-between items-center mt-2 font-mono text-xs tracking-widest uppercase text-muted-foreground">
             <span>Career Timeline · News Archive</span>

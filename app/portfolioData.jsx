@@ -37,8 +37,8 @@ export const portfolioData = {
       title: "Fullstack Developer",
       company: "Uphomes (DezineXpert)",
       location: "Remote",
-      duration: "Feb 2023 – Nov 2024",
-      period: "1 year 9 months",
+      duration: "Oct 2023 – Nov 2024",
+      period: "1 year 1 months",
       highlights: [
         "Led frontend development using Next.js and React, applying modern best practices to enhance performance and maintainability",
         "Developed mobile app interfaces with React Native, improving mobile engagement by 40%",
@@ -77,6 +77,7 @@ export const portfolioData = {
       description:
         "A comprehensive SAAS application for interior designers featuring project management tools, invoice management, and team collaboration. Led development of core features including workflow automation and real-time collaboration.",
       technologies: ["React", "Next.js", "Node.js", "MongoDB"],
+      image: "/Project/DezineXpert.png",
       link: "#",
       featured: true,
     },
@@ -86,6 +87,7 @@ export const portfolioData = {
       description:
         "Developed a professional website for an electrical component manufacturer, showcasing their complete product catalog with detailed specifications and data visualization.",
       technologies: ["React", "Tailwind CSS", "REST API"],
+      image: "/Project/Rahi.png",
       link: "#",
       featured: true,
     },
@@ -95,6 +97,7 @@ export const portfolioData = {
       description:
         "Built an engaging landing page for a premium dairy brand based in Madhya Pradesh, featuring smooth animations and brand storytelling.",
       technologies: ["React", "Framer Motion", "Tailwind CSS"],
+      image: "/Project/image.png",
       link: "#",
       featured: true,
     },
