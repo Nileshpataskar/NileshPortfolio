@@ -25,7 +25,7 @@ export const portfolioData = {
       company: "Globatech Group",
       location: "Pune, India",
       duration: "Feb 2024 – Present",
-      period: "11 months",
+      period: "1 Year 3 Months",
       highlights: [
         "Developed and maintained responsive SPAs using React.js and Material-UI, ensuring cross-browser consistency",
         "Built RESTful APIs in .NET 5 with SQL Server and optimized T-SQL stored procedures for high-volume data management",
